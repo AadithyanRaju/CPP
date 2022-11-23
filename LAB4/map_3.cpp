@@ -1,23 +1,27 @@
-#include <map>
-#include<sstream>
-#include<iostream>
+#include <iostream>
+#include <map> 
+#include <algorithm>
+#include <string.h>
 using namespace std;
-void wordsCount(string str){
-      int count = 1,z=0;
-      std::map<string,int> wordsMap;
-      istringstream wordStream(str);
-      string word;
-       while(wordStream >> word){
-            pair<map<string,int>::iterator,bool> retrunValue;
-            retrunValue = wordsMap.insert( pair<string,int>(word,count));
-            if (retrunValue.second==false)++retrunValue.first->second;
-       }
-       map<string,int>::iterator itr ;
-       for (itr = wordsMap.begin(); itr != wordsMap.end(); ++itr)z+=itr->second;
-       cout<<z<<endl;
-}
-int main(){
-    wordsCount("w1 w2 w3 w4 w5");    
+int main()
+{
+    map<int,string> m1;
+    map<int,string>::iterator it;
+    string a; a="w1 w2 w3 w4 w5";
+    int count=0,len=0,nlen=0;
+    for(int i=0;i<a.length();i++)
+    {
+        char ch=a[i];
+        if(ch==' ')
+        {
+            count+=1;
+            m1.emplace(count,a.substr(nlen,len));
+            nlen+=(len+1);
+            len=0;
+        }
+        else len+=1;
+    }
+    it=m1.end();
+    cout<<"Length: "<<(*it).first+1<<endl; 
     return 0;
-
 }
