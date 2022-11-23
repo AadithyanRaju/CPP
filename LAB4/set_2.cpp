@@ -24,7 +24,7 @@ int main()
             cin>>y;
             int c=0;
             for(i=s.begin();i!=s.end();i++)if(*i==y)c++;
-            if(c!=0)cout<<"FOUND :: NUMBER OF TIMES FOUND = "<<c<<endl;
+            if(c!=0)cout<<"FOUND, NUMBER OF TIMES FOUND = "<<c<<endl;
             else cout<<"NOT FOUND"<<endl;
         }
     }
